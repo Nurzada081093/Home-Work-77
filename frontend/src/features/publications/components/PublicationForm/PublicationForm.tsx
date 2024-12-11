@@ -6,6 +6,8 @@ import { Textarea } from '@mui/joy';
 import * as React from 'react';
 import FileFormInput from '../../../../components/FileFormInput/FileFormInput.tsx';
 import { toast } from 'react-toastify';
+import { useAppDispatch } from '../../../../app/hooks.ts';
+import { postPublication } from '../../publicationsThunk.ts';
 
 const initialPublication = {
   message: '',
@@ -15,13 +17,15 @@ const initialPublication = {
 
 const PublicationForm = () => {
   const [newPublication, setNewPublication] = useState<IPublication>(initialPublication);
+  const dispatch = useAppDispatch();
 
   const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (newPublication.message.trim().length > 0) {
-      console.log(newPublication);
+      dispatch(postPublication(newPublication));
       toast.success('Publication has been successfully added!');
+      setNewPublication(initialPublication);
     } else {
       toast.error('If you want to write a publication, you should fill out the message!');
     }
