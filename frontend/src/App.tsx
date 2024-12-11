@@ -1,10 +1,10 @@
-
+import Publications from './features/publications/components/Publications/Publications.tsx';
 
 const App = () => {
 
   return (
     <>
-      I'm starting my home work #77! ^_^
+      <Publications/>
     </>
   )
 };
