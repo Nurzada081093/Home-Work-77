@@ -22,6 +22,8 @@ const initialState: initialPublication = {
 }
 
 export const allPublicationsSlice = (state: RootState) => state.publications.publications;
+export const postLoadingSlice = (state: RootState) => state.publications.loadings.postLoading;
+export const getLoadingSlice = (state: RootState) => state.publications.loadings.getLoading;
 
 const publicationsSlice = createSlice({
   name: 'publications',

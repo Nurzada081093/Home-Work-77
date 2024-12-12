@@ -3,13 +3,15 @@ import Sheet from '@mui/joy/Sheet';
 import React from 'react';
 import PublicationForm from '../../../features/publications/components/PublicationForm/PublicationForm.tsx';
 import { ModalClose } from '@mui/joy';
+import { IPublication } from '../../../types';
 
 interface Props {
   openModal: boolean;
   closeModal: () => void;
+  addPublication: (publication: IPublication) => void;
 }
 
-const ModalWindow:React.FC<Props> = ({openModal, closeModal}) => {
+const ModalWindow:React.FC<Props> = ({openModal, closeModal, addPublication}) => {
 
   return (
     <>
@@ -22,10 +24,10 @@ const ModalWindow:React.FC<Props> = ({openModal, closeModal}) => {
       >
         <Sheet
           variant="outlined"
-          sx={{ maxWidth: 500, borderRadius: 'md', boxShadow: 'lg' }}
+          sx={{ maxWidth: '50%', borderRadius: 'md', boxShadow: 'lg' }}
         >
           <ModalClose variant="plain" sx={{ m: 1 }} />
-          <PublicationForm/>
+          <PublicationForm addPublication={addPublication}/>
         </Sheet>
       </Modal>
     </>

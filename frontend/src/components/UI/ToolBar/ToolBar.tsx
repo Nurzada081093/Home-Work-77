@@ -1,6 +1,5 @@
 import { AppBar, Box, Button, Container, IconButton, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import React from 'react';
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 const ToolBar:React.FC<Props> = ({openModal}) => {
   return (
     <Box sx={{flexGrow: 1}}>
-      <AppBar position="static" sx={{background: '#263238'}}>
+      <AppBar position="static" sx={{background: '#263238', padding: '10px 0'}}>
         <Container maxWidth="lg">
           <Toolbar>
             <IconButton
@@ -25,10 +24,14 @@ const ToolBar:React.FC<Props> = ({openModal}) => {
             <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
               Publications
             </Typography>
-            <Button color="inherit" sx={{color: 'inherit', '&.active': {fontSize: '20px'}}} onClick={openModal}>Add new publication</Button>
-            <IconButton color="inherit" sx={{marginLeft: '20px'}}>
-              <SearchIcon />
-            </IconButton>
+            <Button
+              color="inherit"
+              sx={{
+                '&:hover': {
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.8)'
+                },
+              }}
+              onClick={openModal}>Add new publication</Button>
           </Toolbar>
         </Container>
       </AppBar>
