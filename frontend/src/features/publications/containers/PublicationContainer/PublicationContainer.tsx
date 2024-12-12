@@ -21,12 +21,11 @@ const PublicationContainer = () => {
 
   const closeModal = async () => {
     await dispatch(getPublications());
-    setOpen(false)
+    setOpen(false);
   };
 
   const addPublication = async (publication: IPublication) => {
     await dispatch(postPublication(publication));
-    await dispatch(getPublications());
     toast.success('Publication has been successfully added!');
   };
 
